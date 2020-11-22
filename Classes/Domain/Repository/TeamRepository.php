@@ -1,6 +1,6 @@
 <?php
 
-namespace Cg\ChessManager\Domain\Repository;
+namespace ChrisGruen\ChessManager\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Repository;
 

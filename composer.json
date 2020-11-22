@@ -1,16 +1,20 @@
 {
-    "name": "cg/chess-manager",
-    "type": "typo3-cms-extension",
-    "description": "An extension to manage Chess results",
-    "homepage": "https://demochris.de/",
-    "license": ["GPL-2.0-or-later"],
-    "keywords": ["TYPO3 CMS"],
-    "require": {
-        "bk2k/bootstrap-package": "^11.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Privat\\ChessManager\\": "Classes/"
-        }
-    }
+	"name" : "chrisgruen/chess-manager",
+	"type" : "typo3-cms-extension",
+	"description" : "An extension to manage Chess results",
+	"homepage" : "https://demochris.de/",
+	"license" : "GPL-2.0-or-later",
+	"minimum-stability": "dev",
+    "prefer-stable": true,
+	"keywords" : [
+		"TYPO3 CMS"
+	],
+	"require" : {
+		"bk2k/bootstrap-package" : "^11.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"ChrisGruen\\ChessManager\\" : "Classes/"
+		}
+	},
 }

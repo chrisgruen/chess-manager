@@ -1,8 +1,8 @@
 <?php
 
-namespace Cg\ChessManager\Controller;
+namespace ChrisGruen\ChessManager\Controller;
 
-use Cg\ChessManager\Domain\Repository\TeamRepository;
+use ChrisGruen\ChessManager\Domain\Repository\TeamRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ChessManagerController extends ActionController
@@ -12,7 +12,7 @@ class ChessManagerController extends ActionController
     /**
      * Inject the team repository
      *
-     * @param Cg\ChessManager\Domain\Repository\TeamRepository $teamRepository
+     * @param ChrisGruen\ChessManager\Domain\Repository\TeamRepository $teamRepository
      */
     public function injectTeamRepository(TeamRepository $teamRepository)
     {

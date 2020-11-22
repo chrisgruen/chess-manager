@@ -15,15 +15,15 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload' => [
         'psr-4' => [
-            'Cg\\ChessManager\\' => 'Classes',
+            'ChrisGruen\\ChessManager\\' => 'Classes',
         ],
     ],
-    'state' => 'alpha',
+    'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 1,
     'author' => 'Christian Grünwald',
     'author_email' => 'cg@romonta-schach.de',
-    'author_company' => 'Cg',
+    'author_company' => 'ChrisGruen',
     'version' => '1.0.0',
 ];

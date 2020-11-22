@@ -1,6 +1,6 @@
 <?php
 
-namespace Cg\ChessManager\Domain\Model;
+namespace ChrisGruen\ChessManager\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
