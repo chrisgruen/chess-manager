@@ -1,5 +1,5 @@
 <?php
-//Test
+
 namespace ChrisGruen\ChessManager\Controller;
 
 use ChrisGruen\ChessManager\Domain\Repository\TeamRepository;
