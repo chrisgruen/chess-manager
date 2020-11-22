@@ -1,0 +1,35 @@
+<?php
+
+namespace Cg\ChessManager\Controller;
+
+use Cg\ChessManager\Domain\Repository\TeamRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+class ChessManagerController extends ActionController
+{
+    private $teamRepository;
+
+    /**
+     * Inject the team repository
+     *
+     * @param Cg\ChessManager\Domain\Repository\TeamRepository $teamRepository
+     */
+    public function injectTeamRepository(TeamRepository $teamRepository)
+    {
+        $this->teamRepository = $teamRepository;
+    }
+
+    public function listAction()
+    {
+        $teams = $this->teamRepository->findAll();
+        /*
+        $array = array(
+            "foo" => "bar",
+            "bar" => "foo",
+        );
+        var_dump($array);
+        exit;
+        */
+        $this->view->assign('teams', $teams);
+    }
+}
