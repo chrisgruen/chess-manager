@@ -1,5 +1,5 @@
 <?php
-
+//Test
 namespace ChrisGruen\ChessManager\Controller;
 
 use ChrisGruen\ChessManager\Domain\Repository\TeamRepository;
@@ -22,14 +22,6 @@ class ChessManagerController extends ActionController
     public function listAction()
     {
         $teams = $this->teamRepository->findAll();
-        /*
-        $array = array(
-            "foo" => "bar",
-            "bar" => "foo",
-        );
-        var_dump($array);
-        exit;
-        */
         $this->view->assign('teams', $teams);
     }
 }

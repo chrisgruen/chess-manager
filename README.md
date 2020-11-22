@@ -1,4 +1,4 @@
 Sitepackage for the project "Chess Manager"
 ==============================================================
 
-Add some explanation here.
+develope new typo3 extension with bootstrap-package (first steps)
