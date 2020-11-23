@@ -7,16 +7,29 @@
         </header>
         <body>
 			<trans-unit id="extension.title">
-                <source>Store Team Records</source>
+                <source>Chess Manager</source>
             </trans-unit>
             <trans-unit id="tx_chessmanager_domain_model_team">
                 <source>Teams</source>
             </trans-unit>
-            <trans-unit id="tx_chessmanager_domain_model_team.item_team">
+            <trans-unit id="tx_chessmanager_domain_model_team.item_label">
                 <source>Item team</source>
             </trans-unit>
             <trans-unit id="tx_chessmanager_domain_model_team.item_note">
                 <source>Item note</source>
+            </trans-unit>
+
+			<trans-unit id="tx_chessmanager_domain_model_player">
+                <source>Players</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_player.item_name">
+                <source>Item player</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_player.item_dwz">
+                <source>Item DWZ</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_player.item_phone">
+                <source>Item phone</source>
             </trans-unit>
         </body>
     </file>

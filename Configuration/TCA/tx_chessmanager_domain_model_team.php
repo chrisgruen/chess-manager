@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanagerdomain_domain_model_team',
+        'title' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team',
         'label' => 'team',
         'iconfile' => 'EXT:chess_manager/Resources/Public/Icons/Team.svg',
     ],
@@ -15,7 +15,7 @@ return [
             ],
         ],
         'note' => [
-            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_description',
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_note',
             'config' => [
                 'type' => 'text',
                 'eval' => 'trim',
