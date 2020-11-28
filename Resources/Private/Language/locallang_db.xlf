@@ -31,6 +31,9 @@
 			<trans-unit id="tx_chessmanager_domain_model_player.item_phone">
                 <source>Item phone</source>
             </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_player.item_sort">
+                <source>Sort</source>
+            </trans-unit>
 			
 			<trans-unit id="tx_chessmanager_domain_model_resultteam">
                 <source>Results</source>

@@ -11,7 +11,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim',
+                'eval' => 'required, trim',
             ],
         ],
 		'dwz' => [
@@ -39,8 +39,21 @@ return [
 				],
             ],
         ],
+        'sort' => [
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_player.item_sort',
+            'config' => [
+                'type' => 'input',
+                'size' => 5,
+                'eval' => 'trim',
+            ],
+        ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name, dwz, phone, status'],
+        '0' => ['showitem' => '--palette--;;name_sort, dwz, phone, status'],
+    ],
+    'palettes' => [
+        'name_sort' => [
+            'showitem' => 'name, sort',
+        ],
     ],
 ];

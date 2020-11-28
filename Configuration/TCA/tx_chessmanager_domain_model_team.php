@@ -11,7 +11,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => '20',
-                'eval' => 'trim',
+                'eval' => 'required, trim',
             ],
         ],
         'note' => [
