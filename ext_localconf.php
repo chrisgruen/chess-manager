@@ -1,4 +1,4 @@
-<?php
+N<?php
 defined('TYPO3_MODE') || die('Access denied.');
 
 /***************
@@ -16,7 +16,7 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['chess_manager'] = 'EXT:chess_mana
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'ChessManager',
-    'TeamList',
-    [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => 'list'],
+    'ManageChessResults',
+    [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => 'index'],
     [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => '',]
 );

@@ -19,7 +19,7 @@ class ChessManagerController extends ActionController
         $this->teamRepository = $teamRepository;
     }
 
-    public function listAction()
+    public function indexAction()
     {
         $teams = $this->teamRepository->findAll();
         $this->view->assign('teams', $teams);
