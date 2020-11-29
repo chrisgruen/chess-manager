@@ -15,17 +15,17 @@ class Team extends AbstractEntity
         $this->setNote($note);
     }
 
-    public function setTeam(string $team): void
+    public function setTeam(string $team)
     {
         $this->team = $team;
     }
 
-    public function getTeam(): string
+    public function getTeam()
     {
         return $this->team;
     }
 
-    public function setNote(string $note): void
+    public function setNote(string $note)
     {
         $this->note = $note;
     }

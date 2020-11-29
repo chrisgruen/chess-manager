@@ -3,11 +3,13 @@
 namespace ChrisGruen\ChessManager\Controller;
 
 use ChrisGruen\ChessManager\Domain\Repository\TeamRepository;
+use ChrisGruen\ChessManager\Domain\Repository\PlayerRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ChessManagerController extends ActionController
 {
     private $teamRepository;
+    private $playerRepository;
 
     /**
      * Inject the team repository
@@ -18,10 +20,24 @@ class ChessManagerController extends ActionController
     {
         $this->teamRepository = $teamRepository;
     }
+    
+    /**
+     * Inject the player repository
+     *
+     * @param ChrisGruen\ChessManager\Domain\Repository\PlayerRepository $playerRepository
+     */
+    public function injectPlayerRepository(PlayerRepository $playerRepository)
+    {
+        $this->playerRepository = $playerRepository;
+    }
 
     public function indexAction()
     {
-        $teams = $this->teamRepository->findAll();
-        $this->view->assign('teams', $teams);
+        //$allplayers = $this->playerRepository->findAll();
+        $activePlayers = $this->playerRepository->findActivePlayer();
+        $this->view->assign('players', $activePlayers);
     }
+    
+    
+    
 }
