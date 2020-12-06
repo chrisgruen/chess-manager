@@ -1,9 +1,14 @@
 <?php
+$ll = 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:';
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_player',
         'label' => 'name',
         'iconfile' => 'EXT:chess_manager/Resources/Public/Icons/Player.svg',
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+        ],
+        'sortby' => 'sort',
     ],
     'columns' => [
         'name' => [
@@ -30,6 +35,13 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'note' => [
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_note',
+            'config' => [
+                'type' => 'text',
+                'eval' => 'trim',
+            ],
+        ],
 		'status' => [
             'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_player.item_status',
             'config' => [
@@ -49,7 +61,8 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => '--palette--;;name_sort, dwz, phone, status'],
+        '0' => ['showitem' => '--palette--;;name_sort, dwz, phone, status, --palette--;;paletteCore,
+                 --div--;' . $ll . 'notes, note'],
     ],
     'palettes' => [
         'name_sort' => [

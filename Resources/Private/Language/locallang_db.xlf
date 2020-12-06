@@ -65,6 +65,10 @@
 			<trans-unit id="tx_chessmanager_domain_model_resultteam.away_point1">
                 <source>Board score away team</source>
             </trans-unit>
+            
+            <trans-unit id="notes" xml:space="preserve">
+				<source>Notes</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>
