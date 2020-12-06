@@ -43,7 +43,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => '--palette--;;name_sort, note, --palette--;;paletteCore,
+        '0' => ['showitem' => '--palette--;;name_sort,--palette--;;paletteCore,
             --div--;' . $ll . 'notes, note'],
     ],
     'palettes' => [

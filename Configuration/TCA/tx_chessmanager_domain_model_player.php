@@ -36,7 +36,7 @@ return [
             ],
         ],
         'note' => [
-            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_note',
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_player.item_note',
             'config' => [
                 'type' => 'text',
                 'eval' => 'trim',

@@ -16,7 +16,7 @@
                 <source>Item team</source>
             </trans-unit>
             <trans-unit id="tx_chessmanager_domain_model_team.item_note">
-                <source>Item note</source>
+                <source>Note team</source>
             </trans-unit>
 
 			<trans-unit id="tx_chessmanager_domain_model_player">
@@ -30,6 +30,9 @@
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_phone">
                 <source>Item phone</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_player.item_note">
+                <source>Note Player</source>
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_sort">
                 <source>Sort</source>
