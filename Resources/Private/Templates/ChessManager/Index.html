@@ -1,13 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <table border="1" cellspacing="1" cellpadding="5">
     <tr>
+ 	<td>UID</td>
         <td>Player</td>
         <td>DWZ</td>
     </tr>
     <f:for each="{players}" as="player">
         <tr>
+	    <td align="top">{player.uid}</td>
             <td align="top">{player.name}</td>
             <td align="top">{player.dwz}</td>
+	    <td align="top">
+		<f:link.action action="show" arguments="{playerUid : player.uid}">show</f:link.action>
+	    </td>
         </tr>
     </f:for>
 </table>

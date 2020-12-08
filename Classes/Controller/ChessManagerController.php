@@ -37,7 +37,18 @@ class ChessManagerController extends ActionController
         $activePlayers = $this->playerRepository->findActivePlayer();
         $this->view->assign('players', $activePlayers);
     }
-    
-    
-    
+
+    public function showAction(\ChrisGruen\ChessManager\Domain\Model\Player $playerUid)
+    {
+	//$player =  $this->playerRepository->showPlayer();
+	$player =  $this->playerRepository->findByUid($playerUid);
+	$this->view->assign('player', $player);
+    }   
+
+	
+    public function listAction()
+    {
+	echo "List";
+	exit;
+    }      
 }

@@ -16,5 +16,21 @@ class PlayerRepository extends Repository
         );
         return $query->execute();
     }
+
+    public function showPlayer()
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+            $query->equals('uid', 1),
+           )
+        );
+        return $query->execute();
+    }
+
+    public function findByUid($uid)
+    {
+       return $this->findByIdentifier($uid);
+    }
 }
 

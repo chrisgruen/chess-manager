@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<h3>Results</h3>
+<table border="1" cellspacing="1" cellpadding="5">
+    <tr>
+        <td>UID</td>
+        <td>Date</td>
+        <td>Saison</td>
+        <td>Class</td>
+        <td>Round</td>
+        <td>Home-team</td>
+        <td>Away-team</td>
+        <td>Home point 1</td>
+        <td>Away point 1</td>
+        <td>Home point 2</td>
+        <td>Away point 2</td>
+    </tr>
+    <f:for each="{results}" as="result">
+        <tr>
+            <td align="top">{result.uid}</td>
+            <td align="top">{result.dateMatch}</td>
+            <td align="top">{result.saisonGame}</td>
+            <td align="top">{result.classGame}</td>
+            <td align="top">{result.roundGame}</td>
+            <td align="top">{result.homeTeam}</td>
+            <td align="top">{result.awayTeam}</td>
+            <td align="top">{result.homePoint1}</td>
+            <td align="top">{result.awayPoint1}</td>
+            <td align="top">{result.homePoint2}</td>
+            <td align="top">{result.awayPoint2}</td>
+        </tr>
+    </f:for>
+</table>
+</html>

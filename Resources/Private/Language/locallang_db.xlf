@@ -37,38 +37,38 @@
 			<trans-unit id="tx_chessmanager_domain_model_player.item_sort">
                 <source>Sort</source>
             </trans-unit>
-			
-			<trans-unit id="tx_chessmanager_domain_model_resultteam">
+
+			<trans-unit id="tx_chessmanager_domain_model_result">
                 <source>Results</source>
             </trans-unit>
-            <trans-unit id="tx_chessmanager_domain_model_resultteam.saison_game">
+            <trans-unit id="tx_chessmanager_domain_model_result.saison_game">
                 <source>Saison</source>
             </trans-unit>
-            <trans-unit id="tx_chessmanager_domain_model_resultteam.round_game">
+            <trans-unit id="tx_chessmanager_domain_model_result.round_game">
                 <source>Round</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.date_game">
+			<trans-unit id="tx_chessmanager_domain_model_result.date_game">
                 <source>Date match</source>
-            </trans-unit>			
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.home_team">
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_result.home_team">
                 <source>Home team</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.away_team">
+			<trans-unit id="tx_chessmanager_domain_model_result.away_team">
                 <source>Away team</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.home_point1">
+			<trans-unit id="tx_chessmanager_domain_model_result.home_point1">
                 <source>Score home team</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.away_point1">
+			<trans-unit id="tx_chessmanager_domain_model_result.away_point1">
                 <source>Score away team</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.home_point1">
+			<trans-unit id="tx_chessmanager_domain_model_result.home_point1">
                 <source>Board score home team</source>
             </trans-unit>
-			<trans-unit id="tx_chessmanager_domain_model_resultteam.away_point1">
+			<trans-unit id="tx_chessmanager_domain_model_result.away_point1">
                 <source>Board score away team</source>
             </trans-unit>
-            
+
             <trans-unit id="notes" xml:space="preserve">
 				<source>Notes</source>
 			</trans-unit>

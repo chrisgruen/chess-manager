@@ -22,9 +22,9 @@ CREATE TABLE tx_chessmanager_domain_model_player (
 );
 
 #
-# Table structure for table 'tx_chessmanager_domain_model_resultteam'   float DEFAULT '0' NOT NULL,
+# Table structure for table 'tx_chessmanager_domain_model_result'   float DEFAULT '0' NOT NULL,
 #
-CREATE TABLE tx_chessmanager_domain_model_resultteam (
+CREATE TABLE tx_chessmanager_domain_model_result (
    class_game TINYINT(2) DEFAULT '0' NOT NULL,
    round_game TINYINT(2) DEFAULT '0' NOT NULL,
    saison_game varchar(20) DEFAULT '' NOT NULL,
