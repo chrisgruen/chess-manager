@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['chess_manager'] = 'EXT:chess_mana
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'ChessManager',
     'ManageChessResults',
-    [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => 'index, list, show',
+    [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => 'listplayer, showplayer, listteam, showteam',
      \ChrisGruen\ChessManager\Controller\ChessResultController::class => 'index, list, show',
     ],
     [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => '',]

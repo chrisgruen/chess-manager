@@ -5,16 +5,16 @@
 <table border="1" cellspacing="1" cellpadding="5">
     <tr>
  	<td>UID</td>
-        <td>Player</td>
-        <td>DWZ</td>
+        <td>team</td>
+        <td>Notes</td>
     </tr>
-    <f:for each="{players}" as="player">
+    <f:for each="{teams}" as="team">
         <tr>
-	    <td align="top">{player.uid}</td>
-            <td align="top">{player.name}</td>
-            <td align="top">{player.dwz}</td>
+	    <td align="top">{team.uid}</td>
+            <td align="top">{team.team}</td>
+            <td align="top">{team.note}</td>
 	    <td align="top">
-		<f:link.action action="show" arguments="{playerUid : player.uid}">show</f:link.action>
+		<f:link.action action="showteam" arguments="{teamUid : team.uid}">show</f:link.action>
 	    </td>
         </tr>
     </f:for>

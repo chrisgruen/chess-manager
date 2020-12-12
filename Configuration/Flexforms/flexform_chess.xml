@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<sheets>
+		<!--
+			################################
+			  SHEET General Settings
+			################################
+		-->
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Auswahl</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<!-- View -->
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.results</numIndex>
+										<numIndex index="1">ChessResult->index</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.players</numIndex>
+										<numIndex index="1">ChessManager->listplayer; ChessManager->showplayer</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.teams</numIndex>
+										<numIndex index="1">ChessManager->listteam; ChessManager->showteam</numIndex>
+									</numIndex>
+								</items>
+							</config>
+                        </TCEforms>
+                    </switchableControllerActions>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

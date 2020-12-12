@@ -12,11 +12,22 @@ class ResultRepository extends Repository
         return $query->execute();
     }
 
+    public function saison_round($aison, $round) {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                $query->equals('saisonGame', $aison),
+                $query->equals('roundGame', $round),
+            )
+        );
+        return $query->execute();
+    }
+
     public function relationQuery()
     {
         $query = $this->createQuery();
-        $result = $query->statement('SELECT * FROM tx_sjroffers_domain_model_offer');
-        return $result;
+        $query->statement('SELECT * FROM tx_chessmanager_domain_model_result');
+        return $query->execute();;
     }
 }
 

@@ -4,3 +4,9 @@
  * Licensed under the GPL-2.0-or-later license
  */
 console.log("WE LOVE TYPO3");
+
+$('.select-saison').on('change', function() {
+    alert( this.value );
+});
+
+
