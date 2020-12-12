@@ -41,7 +41,8 @@ class ChessManagerController extends ActionController
     public function showplayerAction(\ChrisGruen\ChessManager\Domain\Model\Player $playerUid)
     {
         //$player =  $this->playerRepository->showPlayer();
-        $player =  $this->playerRepository->findByUid($playerUid);
+        $uid = $playerUid->getUid();
+        $player =  $this->playerRepository->findByUid($uid);
         $this->view->assign('player', $player);
     }
     
@@ -53,11 +54,10 @@ class ChessManagerController extends ActionController
     
     public function showteamAction(\ChrisGruen\ChessManager\Domain\Model\Team $teamUid)
     {
-        //$player =  $this->playerRepository->showPlayer();
-        $team =  $this->teamRepository->findByUid($teamUid);
+        $uid = $teamUid->getUid();
+        $team =  $this->teamRepository->findByUid($uid);
         $this->view->assign('team', $team);
     }
-
 
     public function listAction()
     {
