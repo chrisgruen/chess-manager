@@ -24,16 +24,19 @@ class ChessResultController extends ActionController
 
     public function indexAction()
     {
-        /*
-            var_dump($this->getSaisons());
-            exit();
-            $results = $this->resultRepository->allSorted();
-       */
-        $GLOBALS['TSFE']->setJS($this->extKey,'alert("Hallo Javascript");');
-        $results = $this->resultRepository->saison_round('2019/2020', 7);
-       $this->view->assign('results', $results);
-       $this->view->assign('saisons', $this->getSaisons());
+        $requestData = $this->request->getArguments();
 
+        $saison = "2018/2019";
+        
+        if($this->request->hasArgument('saison')){
+            $saison = $this->request->getArgument('saison');
+            $saison = $saison;
+        }
+          
+        $results = $this->resultRepository->saison_round($saison, 7);
+        $this->view->assign('results', $results);
+        $this->view->assign('saisons', $this->getSaisons());
+        $this->view->assign('saison_select', $saison);
     }
 
     /**
