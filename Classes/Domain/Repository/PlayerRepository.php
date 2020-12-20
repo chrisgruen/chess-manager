@@ -30,7 +30,7 @@ class PlayerRepository extends Repository
 
     public function findByUid($uid)
     {
-       return $this->findByIdentifier($uid);
+        return $this->findByIdentifier($uid);       
     }
 }
 

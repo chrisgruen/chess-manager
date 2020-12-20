@@ -32,7 +32,7 @@ class Player extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
 
     /**
      *
-     * @return \GeorgRinger\News\Domain\Model\Player
+     * @return \ChrisGruen\ChessManager\Domain\ModelPlayer
      */
     public function __construct()
     {

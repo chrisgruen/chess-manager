@@ -34,6 +34,18 @@ CREATE TABLE tx_chessmanager_domain_model_result (
    away_point1 decimal(2,1) DEFAULT '0' NOT NULL,
    home_point2 decimal(4,1) DEFAULT '0' NOT NULL,
    away_point2 decimal(4,1) DEFAULT '0' NOT NULL,
+   count_player TINYINT(2) default NULL,
    date_match datetime default NULL,
+);
+
+#
+# Table structure for table 'tx_chessmanager_domain_model_saison'
+#
+CREATE TABLE tx_chessmanager_domain_model_saison (
+   rang_id TINYINT(4) NOT NULL DEFAULT '0',
+   team_rang varchar(255) DEFAULT '' NOT NULL,
+   class varchar(255) DEFAULT '' NOT NULL,
+   saison varchar(255) DEFAULT '' NOT NULL,
+   count_player TINYINT(4) NOT NULL DEFAULT '0',
 );
 

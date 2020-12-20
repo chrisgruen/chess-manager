@@ -11,7 +11,7 @@ return [
     ],
     'columns' => [
         'team' => [
-            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_label',
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_team.item_team',
             'config' => [
                 'type' => 'input',
                 'size' => '20',

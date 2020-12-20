@@ -3,6 +3,7 @@
 namespace ChrisGruen\ChessManager\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use ChrisGruen\ChessManager\Domain\Repository\teamRepository;
 
 class Team extends AbstractEntity
 {

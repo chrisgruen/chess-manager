@@ -3,8 +3,10 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_result',
         'label' => 'saison_game',
+        'label_alt' => 'round_game, home_team, away_team',
+        'label_alt_force' => 1,
         'iconfile' => 'EXT:chess_manager/Resources/Public/Icons/Result.svg',
-	'default_sortby' => 'ORDER BY uid DESC',
+	    'default_sortby' => 'ORDER BY uid DESC',
     ],
     'columns' => [
         'class_game' => [
@@ -52,6 +54,29 @@ return [
 		            ['2030/2031', '2030/2031'],
 		        ],
 		    ],
+        ],
+        'count_player' => [
+            'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_saison.item_count_player',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['Default', Null],
+                    ['1', '1'],
+                    ['2', '2'],
+                    ['3', '3'],
+                    ['4', '4'],
+                    ['5', '5'],
+                    ['6', '6'],
+                    ['7', '7'],
+                    ['8', '8'],
+                    ['9', '9'],
+                    ['10', '10'],
+                    ['11', '11'],
+                    ['12', '12'],
+                ],
+                'default' => Null,
+            ],
         ],
         'round_game' => [
             'label' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_result.round_game',
@@ -138,7 +163,7 @@ return [
     ],
     'palettes' => [
         'saison' => [
-            'showitem' => 'saison_game, round_game, date_match',
+            'showitem' => 'saison_game, count_player, round_game, date_match',
         ],
         'teams' => [
             'showitem' => 'home_team, away_team',

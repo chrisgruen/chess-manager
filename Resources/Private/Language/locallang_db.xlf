@@ -12,7 +12,7 @@
             <trans-unit id="tx_chessmanager_domain_model_team">
                 <source>Teams</source>
             </trans-unit>
-            <trans-unit id="tx_chessmanager_domain_model_team.item_label">
+            <trans-unit id="tx_chessmanager_domain_model_team.item_team">
                 <source>Item team</source>
             </trans-unit>
             <trans-unit id="tx_chessmanager_domain_model_team.item_note">
@@ -67,6 +67,25 @@
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_result.away_point1">
                 <source>Board score away team</source>
+            </trans-unit>
+
+            <trans-unit id="tx_chessmanager_domain_model_saison">
+                <source>Saison/Year</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_saison.item_rang_id">
+                <source>ID (class-leage)</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_saison.item_team_rang">
+                <source>Team</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_saison.item_class">
+                <source>Play-Class</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_saison.item_saison">
+                <source>Saison</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_saison.item_count_player">
+                <source>Count Players</source>
             </trans-unit>
 
             <trans-unit id="notes" xml:space="preserve">

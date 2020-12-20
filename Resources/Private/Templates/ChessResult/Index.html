@@ -2,26 +2,55 @@
       xmlns:n="http://typo3.org/ns/ChrisGruen/ChessManager/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<h4>Saison </h4>
-<f:form action="index" controller="ChessResult" noCache="1">
-<f:form.select name="saison" class="select-saison" options="{saisons}" optionValueField="key" optionLabelField="value" value="{saison_select}" />
-<f:form.submit value="Submit" />
-</f:form>
+<h4 class="text-center">Unsere Punktspiele in der Spielklasse: {saison_leage}</h4>
+<h4 class="text-center">
+    <f:link.action action="index" arguments="{year : year_saison_min}">&laquo;</f:link.action>
+    Saison {show_saison}
+    <f:link.action action="index" arguments="{year : year_saison_plus}">&raquo;</f:link.action>
+</h4>
+<br />
+<f:if condition="{results} > 0">
+    <f:form action="list" id="fsaison" controller="ChessResult" noCache="1">
+        <f:form.hidden name="year" value="{year_saison_start}" />
+        <f:form.select name="round" class="select-round" options="{rounds}" optionValueField="key" optionLabelField="value" value="{round}" />
+        <f:form.submit value="Zeige" />
+    </f:form>
 
-<table border="1" cellspacing="1" cellpadding="5">
-    <tr>
-        <td colspan="7">Datum: <f:format.date format="d.m.Y">{results.0.dateMatch}</f:format.date></td>
-    </tr>
-    <f:for each="{results}" as="result">
+    <table border="1" cellspacing="1" cellpadding="5">
         <tr>
-            <td align="top">{result.uid}</td>
-            <td align="top"><n:showTeam team='{result.homeTeam}' /></td>
-            <td align="top">{result.homePoint1}</td>
-            <td> : </td>
-            <td align="top">{result.awayPoint1}</td>
-            <td align="top"><n:showTeam team='{result.awayTeam}' /></td>
-            <td align="top">{result.homePoint1}</td>
+            <td colspan="6">Datum: <f:format.date format="d.m.Y">{results.0.dateMatch}</f:format.date></td>
         </tr>
-    </f:for>
-</table>
+        <f:for each="{results}" as="result">
+            <tr>
+                <td align="top">{result.uid}</td>
+                <td align="top"><n:showTeam team='{result.homeTeam}' /></td>
+                <td align="top">{result.homePoint1}</td>
+                <td> : </td>
+                <td align="top">{result.awayPoint1}</td>
+                <td align="top"><n:showTeam team='{result.awayTeam}' /></td>
+            </tr>
+        </f:for>
+    </table>
+
+    <br /><br />
+    <table border="1" cellspacing="1" cellpadding="5">
+        <tr>
+            <td colspan="8">Tabelle Rangliste</td>
+        </tr>
+		<f:for each="{ranglist}" as="rang" key="key">
+	        <tr>
+			    <td align="top">{key+1}</td>
+			    <td align="top">{rang.team.team}</td>
+			    <td align="top">({rang.count_match})</td>
+			    <td>{rang.score_plus}</td>
+			    <td> : </td>
+			    <td>{rang.score_min}</td>
+			    <td align="top">{rang.points1}</td>
+			    <td align="top">{rang.points2}</td>
+			</tr>	
+        </f:for>
+
+    </table>
+</f:if>
 </html>
+

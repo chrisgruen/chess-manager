@@ -24,7 +24,7 @@
 								<items>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.results</numIndex>
-										<numIndex index="1">ChessResult->index</numIndex>
+										<numIndex index="1">ChessResult->index; ChessResult->list</numIndex>
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.players</numIndex>
