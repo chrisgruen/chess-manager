@@ -100,5 +100,24 @@ class ResultRepository extends Repository
         $points = $connection->executeQuery($sql)->fetch();
         return $points;
     }
+    
+    
+    /**
+     * get player single result
+     * Data from Table "tx_chessmanager_domain_model_resultplayer"
+     * @return array
+     */
+    public function getPlayerResult($score_report)
+    {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_chessmanager_domain_model_resultplayer');
+        $sql = "SELECT rp.uid, name, home_team, player_opponent, result_myteam, result_opponent
+                FROM tx_chessmanager_domain_model_resultplayer rp
+                INNER JOIN tx_chessmanager_domain_model_player sp on rp.player_myteam = sp.uid
+                INNER JOIN tx_chessmanager_domain_model_result rs on rs.uid = rp.score_report
+                WHERE rp.score_report = '".$score_report."'";
+
+        $result = $connection->executeQuery($sql)->fetchAll();
+        return $result;
+    }
 }
 

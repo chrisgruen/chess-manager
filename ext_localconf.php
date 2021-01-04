@@ -18,10 +18,10 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['chess_manager'] = 'EXT:chess_mana
     'ChessManager',
     'ManageChessResults',
     [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => 'listplayer, showplayer, listteam, showteam',
-        \ChrisGruen\ChessManager\Controller\ChessResultController::class => 'index, list',
+        \ChrisGruen\ChessManager\Controller\ChessResultController::class => 'index, list, resultplayer',
     ],
     // non-cacheable actions
     [\ChrisGruen\ChessManager\Controller\ChessManagerController::class => '',
-        \ChrisGruen\ChessManager\Controller\ChessResultController::class => 'index, list',
+        \ChrisGruen\ChessManager\Controller\ChessResultController::class => 'index, list, resultplayer',
     ]
 );

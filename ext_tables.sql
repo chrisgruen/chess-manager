@@ -49,3 +49,14 @@ CREATE TABLE tx_chessmanager_domain_model_saison (
    count_player TINYINT(4) NOT NULL DEFAULT '0',
 );
 
+#
+# Table structure for table 'tx_chessmanager_domain_model_resultplayer'
+#
+CREATE TABLE tx_chessmanager_domain_model_resultplayer (
+   score_report INT(11) NOT NULL DEFAULT '0',
+   player_myteam TINYINT(4) NOT NULL DEFAULT '0',
+   player_opponent varchar(255) DEFAULT '' NOT NULL,
+   result_myteam decimal(2,1) DEFAULT '0' NOT NULL,
+   result_opponent decimal(2,1) DEFAULT '0' NOT NULL,
+);
+

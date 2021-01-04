@@ -27,11 +27,14 @@
                 <td align="top">{result.homePoint1}</td>
                 <td> : </td>
                 <td align="top">{result.awayPoint1}</td>
-                <td align="top"><n:showTeam team='{result.awayTeam}' /></td>
+                <td align="top"><n:showTeam team='{result.awayTeam}' /></td>                
+                <td align="top">
+                	<f:link.action action="resultplayer" arguments="{scorereport : result.uid, round : result.roundGame, saison : result.saisonGame, class : result.classGame, hometeam : result.homeTeam, awayteam : result.awayTeam }"><n:CheckResultPlayer reportid='{result.uid}' /></f:link.action>
+				</td>
             </tr>
         </f:for>
     </table>
-
+    	
     <br /><br />
     <table border="1" cellspacing="1" cellpadding="5">
         <tr>
@@ -49,7 +52,6 @@
 			    <td align="top">{rang.points2}</td>
 			</tr>	
         </f:for>
-
     </table>
 </f:if>
 </html>

@@ -3,12 +3,13 @@
 namespace ChrisGruen\ChessManager\Controller;
 
 use ChrisGruen\ChessManager\Domain\Repository\ResultRepository;
-use ChrisGruen\ChessManager\Domain\Repository\SaisonRepository;
+use ChrisGruen\ChessManager\Domain\Repository\ResultplayerRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ChessResultController extends ActionController
 {
     private $resultRepository;
+    private $resultplayerRepository;
 
     /**
      * Inject the result repository
@@ -19,19 +20,30 @@ class ChessResultController extends ActionController
     {
         $this->resultRepository = $resultRepository;
     }
+    
+    /**
+     * Inject the result resultplayer repository
+     *
+     * @param ChrisGruen\ChessManager\Domain\Repository\PlayerRepository $resultplayerRepository
+     */
+    public function injectPlayerRepository(ResultplayerRepository $resultplayerRepository)
+    {
+        $this->resultplayerRepository = $resultplayerRepository;
+    }
 
     public function indexAction()
     {
         $show_saison = '';
         $maxround = 0;
-        $arguments = $this->request->getArguments();
-
+       
         if($this->request->hasArgument('year')){
             $date_year  = $this->request->getArgument('year');
+        } else if ($this->request->hasArgument('saison')){
+            $date_year  = substr($this->request->getArgument('saison'),  0, 4);
         } else {
             $date_year = date('Y');
         }
-
+        
         /* denpend $date_month for show saison (halfyear) */
         $date_month = date('n');
         //$date_month = 5;
@@ -44,7 +56,7 @@ class ChessResultController extends ActionController
         } else {
             $year_saison_start = $date_year-1;
             $show_saison = $year_saison_start.'/'.($year_saison_start + 1);
-            $year_saison_min = $year_saison_start-1;
+            $year_saison_min = $year_saison_start;
             $year_saison_plus = $year_saison_start+2;
         }
 
@@ -95,6 +107,66 @@ class ChessResultController extends ActionController
 
         $this->forward('index', 'ChessResult', $this->request->getControllerExtensionName(), $this->request->getArguments());
     }
+    
+    public function resultplayerAction()
+    {
+        $resultplayers = [];
+        $rangplayer = [];
+        $round = '';
+        $saison = '';
+        $hometeam = 0;
+        $awayteam = 0;
+        
+        if($this->request->hasArgument('scorereport')){
+            $scorereport = $this->request->getArgument('scorereport');
+            $round = $this->request->getArgument('round');
+            $saison = $this->request->getArgument('saison');
+            $hometeam = $this->request->getArgument('hometeam');
+            $awayteam = $this->request->getArgument('awayteam');
+            $resultplayers = $this->resultRepository->getPlayerResult($scorereport);
+        }
+        
+        
+        /* prepare ranglist player */
+        $playerSaison = [];
+        $showPlayersScore = [];
+        $playersSaison = $this->resultplayerRepository->getPlayers();
+        $saison_class_id  = $this->request->getArgument('class');
+        
+        foreach($playersSaison as $player) {
+            //echo $player['uid']." :: ".$player['name']."<br />";
+            if ($playerSaison = $this->resultplayerRepository->scorePlayer($player['uid'], $this->request->getArgument('round'), $this->request->getArgument('saison'), $saison_class_id)){                  
+                foreach ($playerSaison as $playerscore){
+                    if ($player['uid'] == $playerscore['uid']){
+                        $score_total = $score_total + $playerscore['result_myteam'];
+                    }
+                }
+                
+                if ($player['uid'] == $playerscore['uid'] && count($playerSaison) > 0){
+                    $procent = $score_total * 100/count($playerSaison);
+                    $playersScore[] = ['name' => $playerscore['name'],
+                                        'countMatch' => count($playerSaison),
+                                        'scoreTotal' => $score_total,
+                                        'procent' => number_format($procent, 2 ,',', '.' ).' %'
+                                        ];
+                 
+                    $score_total = 0;
+                    continue;
+                }
+            }           
+        }
+        
+        if($playersScore){
+            $showPlayersScore = $playersScore;
+        }
+
+        $this->view->assign('resultplayers', $resultplayers);
+        $this->view->assign('round', $round);
+        $this->view->assign('saison', $saison);
+        $this->view->assign('hometeam', $hometeam);
+        $this->view->assign('awayteam', $awayteam);
+        $this->view->assign('rangplayers', $showPlayersScore);
+    }
 
 
 /*############ HELPERFUNTIONS #########################################################################################*/
@@ -139,7 +211,7 @@ class ChessResultController extends ActionController
                     $win_lost = $win_lost_default;
                 }
                 
-                if(count($team_points) > 0) {
+                if(isset($team_points)) {
                     if($team_points > -1) {
                         if($team_points['points'] > $win_lost){
                             $score_plus = 2;
@@ -187,7 +259,7 @@ class ChessResultController extends ActionController
         
         // table sort per rang
         $rang_table = [];
-        if(isset($teams_rang)){
+        if(count($teams_rang) > 0){
             array_multisort(
                 $sort_score_plus_total, SORT_DESC, SORT_NUMERIC,
                 $sort_score_min_total, SORT_ASC, SORT_NUMERIC,

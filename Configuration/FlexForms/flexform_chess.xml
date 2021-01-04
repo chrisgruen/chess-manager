@@ -24,7 +24,7 @@
 								<items>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.results</numIndex>
-										<numIndex index="1">ChessResult->index; ChessResult->list</numIndex>
+										<numIndex index="1">ChessResult->index; ChessResult->list; ChessResult->resultplayer</numIndex>
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.players</numIndex>
@@ -32,7 +32,7 @@
 									</numIndex>
 									<numIndex index="3">
 										<numIndex index="0">LLL:EXT:chess_manager/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.teams</numIndex>
-										<numIndex index="1">ChessManager->listteam; ChessManager->showteam</numIndex>
+										<numIndex index="1">ChessManager->listteam; ChessManager->showteam; ChessResult->list</numIndex>
 									</numIndex>
 								</items>
 							</config>

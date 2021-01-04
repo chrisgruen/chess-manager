@@ -1,0 +1,80 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/ChrisGruen/ChessManager/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h4 class="text-center">Einzelergebnisse</h4>
+<br /><br />
+<f:if condition="{hometeam} == '1'">
+	<f:then>
+		<table border="1" cellspacing="1" cellpadding="5">
+			<tr>
+				<th colspan="6">
+					Einzelergebnisse: Runde {round} / Saison {saison} <br />
+					<n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' />
+				</th>
+			</tr>
+			<f:for each="{resultplayers}" as="resultplayer">
+				<tr>
+		            <td align="top">{resultplayer.uid}</td>
+		            <td align="top">{resultplayer.name}</td>
+		            <td align="top">{resultplayer.result_myteam}</td>
+		            <td> : </td>
+		            <td align="top">{resultplayer.result_opponent}</td>
+		            <td align="top">{resultplayer.player_opponent}</td>
+		         </tr>		
+			</f:for>
+		</table>
+	</f:then>
+	<f:else>
+		<table border="1" cellspacing="1" cellpadding="5">
+			<tr>
+				<th colspan="6">
+					Einzelergebnisse: Runde {round} / Saison {saison} <br />
+					<n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' />
+				</th>
+			</tr>
+			<f:for each="{resultplayers}" as="resultplayer">
+				<tr>
+		            <td align="top">{resultplayer.uid}</td>
+		            <td align="top">{resultplayer.result_opponent}</td>
+		            <td align="top">{resultplayer.player_opponent}</td>
+		            <td> : </td>		            
+		            <td align="top">{resultplayer.name}</td>
+		            <td align="top">{resultplayer.result_myteam}</td>
+		         </tr>		
+			</f:for>
+		</table>
+    </f:else>
+</f:if>
+<br >
+<table border="1" cellspacing="1" cellpadding="5">
+  <tr>
+   <th align="left">
+    Name
+   </th>
+   <th align="left">
+    Spiele
+   </th>
+   <th align="left">
+    Punkte
+   </th>
+   <th align="left">
+    Prozent
+   </th>
+  </tr>
+  <f:for each="{rangplayers}" as="rangplayer">
+  	<f:if condition="{rangplayer.name} != 'unbesetzt'">
+	  	<tr>
+	  		<td align="top">{rangplayer.name}</td>
+	  		<td align="top">{rangplayer.countMatch}</td>
+	  		<td align="top">{rangplayer.scoreTotal}</td>
+	  		<td align="top">{rangplayer.procent}</td>
+	  	</tr>
+  	</f:if>	  	
+  </f:for>
+</table>
+<p><f:link.action action="index" arguments="{saison : saison, round : round}"><< zurück</f:link.action></p>
+
+
+</html>
+

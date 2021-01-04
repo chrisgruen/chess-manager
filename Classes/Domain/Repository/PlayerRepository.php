@@ -13,7 +13,8 @@ class PlayerRepository extends Repository
             $query->logicalAnd(
             $query->equals('status', 1),
            )
-        );
+        )
+        ->setOrderings(array("sort" => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
         return $query->execute();
     }
 

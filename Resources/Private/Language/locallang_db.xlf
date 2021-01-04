@@ -23,7 +23,7 @@
                 <source>Players</source>
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_name">
-                <source>Item player</source>
+                <source>Player name</source>
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_dwz">
                 <source>Item DWZ</source>
@@ -67,6 +67,25 @@
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_result.away_point1">
                 <source>Board score away team</source>
+            </trans-unit>
+            
+			<trans-unit id="tx_chessmanager_domain_model_resultplayer">
+                <source>Results Single</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_resultplayer.score_report">
+                <source>Score report saison/round</source>
+            </trans-unit>
+            <trans-unit id="tx_chessmanager_domain_model_resultplayer.player_myteam">
+                <source>Player my team</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_resultplayer.player_opponent">
+                <source>Player opponent</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_resultplayer.result_myteam">
+                <source>Result</source>
+            </trans-unit>
+			<trans-unit id="tx_chessmanager_domain_model_resultplayer.result_opponent">
+                <source>Result</source>
             </trans-unit>
 
             <trans-unit id="tx_chessmanager_domain_model_saison">
