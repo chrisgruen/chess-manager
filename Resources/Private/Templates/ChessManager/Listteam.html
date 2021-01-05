@@ -2,21 +2,24 @@
       xmlns:n="http://typo3.org/ns/ChrisGruen/ChessManager/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<table border="1" cellspacing="1" cellpadding="5">
-    <tr>
- 	<td>UID</td>
-        <td>team</td>
-        <td>Notes</td>
-    </tr>
-    <f:for each="{teams}" as="team">
-        <tr>
-	    <td align="top">{team.uid}</td>
-            <td align="top">{team.team}</td>
-            <td align="top">{team.note}</td>
-	    <td align="top">
-		<f:link.action action="showteam" arguments="{teamUid : team.uid}">show</f:link.action>
-	    </td>
-        </tr>
-    </f:for>
-</table>
+	<div class="table-responsive">
+		<table class="table">
+		    <tr>
+		 		<th>UID</th>
+		        <th>team</th>
+		        <th>Notes</th>
+		        <th></th>
+		    </tr>
+		    <f:for each="{teams}" as="team">
+		        <tr>
+			    <td>{team.uid}</td>
+		            <td>{team.team}</td>
+		            <td>{team.note}</td>
+			    <td>
+				<f:link.action action="showteam" arguments="{teamUid : team.uid}">show</f:link.action>
+			    </td>
+		        </tr>
+		    </f:for>
+		</table>
+	</div>
 </html>

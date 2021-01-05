@@ -15,44 +15,48 @@
         <f:form.select name="round" class="select-round" options="{rounds}" optionValueField="key" optionLabelField="value" value="{round}" />
         <f:form.submit value="Zeige" />
     </f:form>
-
-    <table border="1" cellspacing="1" cellpadding="5">
-        <tr>
-            <td colspan="6">Datum: <f:format.date format="d.m.Y">{results.0.dateMatch}</f:format.date></td>
-        </tr>
-        <f:for each="{results}" as="result">
-            <tr>
-                <td align="top">{result.uid}</td>
-                <td align="top"><n:showTeam team='{result.homeTeam}' /></td>
-                <td align="top">{result.homePoint1}</td>
-                <td> : </td>
-                <td align="top">{result.awayPoint1}</td>
-                <td align="top"><n:showTeam team='{result.awayTeam}' /></td>                
-                <td align="top">
-                	<f:link.action action="resultplayer" arguments="{scorereport : result.uid, round : result.roundGame, saison : result.saisonGame, class : result.classGame, hometeam : result.homeTeam, awayteam : result.awayTeam }"><n:CheckResultPlayer reportid='{result.uid}' /></f:link.action>
-				</td>
-            </tr>
-        </f:for>
-    </table>
+    
+	<div class="table-responsive">
+	    <table class="table">
+	        <tr>
+	            <th colspan="7">Datum: <f:format.date format="d.m.Y">{results.0.dateMatch}</f:format.date></th>
+	        </tr>
+	        <f:for each="{results}" as="result">
+	            <tr>
+	                <td>{result.uid}</td>
+	                <td><n:showTeam team='{result.homeTeam}' /></td>
+	                <td>{result.homePoint1}</td>
+	                <td> : </td>
+	                <td>{result.awayPoint1}</td>
+	                <td><n:showTeam team='{result.awayTeam}' /></td>                
+	                <td>
+	                	<f:link.action action="resultplayer" arguments="{scorereport : result.uid, round : result.roundGame, saison : result.saisonGame, class : result.classGame, hometeam : result.homeTeam, awayteam : result.awayTeam }"><n:CheckResultPlayer reportid='{result.uid}' /></f:link.action>
+					</td>
+	            </tr>
+	        </f:for>
+	    </table>
+    </div>
     	
     <br /><br />
-    <table border="1" cellspacing="1" cellpadding="5">
-        <tr>
-            <td colspan="8">Tabelle Rangliste</td>
-        </tr>
-		<f:for each="{ranglist}" as="rang" key="key">
+    <div class="table-responsive">
+	    <table class="table">
 	        <tr>
-			    <td align="top">{key+1}</td>
-			    <td align="top">{rang.team.team}</td>
-			    <td align="top">({rang.count_match})</td>
-			    <td>{rang.score_plus}</td>
-			    <td> : </td>
-			    <td>{rang.score_min}</td>
-			    <td align="top">{rang.points1}</td>
-			    <td align="top">{rang.points2}</td>
-			</tr>	
-        </f:for>
-    </table>
+	            <th colspan="8">Tabelle Rangliste</th>
+	        </tr>
+			<f:for each="{ranglist}" as="rang" key="key">
+		        <tr>
+				    <td>{key+1}</td>
+				    <td>{rang.team.team}</td>
+				    <td>({rang.count_match})</td>
+				    <td>{rang.score_plus}</td>
+				    <td> : </td>
+				    <td>{rang.score_min}</td>
+				    <td>{rang.points1}</td>
+				    <td>{rang.points2}</td>
+				</tr>	
+	        </f:for>
+	    </table>
+    </div>
 </f:if>
 </html>
 
