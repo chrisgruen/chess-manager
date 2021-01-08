@@ -28,7 +28,9 @@
 	                <td>{result.awayPoint1}</td>
 	                <td><n:showTeam team='{result.awayTeam}' /></td>                
 	                <td>
-	                	<f:link.action action="resultplayer" arguments="{scorereport : result.uid, round : result.roundGame, saison : result.saisonGame, class : result.classGame, hometeam : result.homeTeam, awayteam : result.awayTeam }"><n:CheckResultPlayer reportid='{result.uid}' /></f:link.action>
+	                	<f:if condition="<n:CheckResultPlayer reportid='{result.uid}' /> !=  ''">
+	                		<f:link.action class="btn btn-default" action="resultplayer" arguments="{scorereport : result.uid, round : result.roundGame, saison : result.saisonGame, class : result.classGame, hometeam : result.homeTeam, awayteam : result.awayTeam }"><n:CheckResultPlayer reportid='{result.uid}' /></f:link.action>
+						</f:if>
 					</td>
 	            </tr>
 	        </f:for>

@@ -37,9 +37,9 @@ class CheckResultPlayerViewHelper extends AbstractViewHelper
         
    
         if($result != Null) {
-            return "einzeln";
+            return ">> Einzelergebnisse";
         } else {
-            return false;
+            return Null;
         }
     }
 }
