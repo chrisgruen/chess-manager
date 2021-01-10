@@ -14,7 +14,7 @@ class PlayerRepository extends Repository
             $query->equals('status', 1),
            )
         )
-        ->setOrderings(array("sort" => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+        ->setOrderings(array("dwz" => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING));
         return $query->execute();
     }
 

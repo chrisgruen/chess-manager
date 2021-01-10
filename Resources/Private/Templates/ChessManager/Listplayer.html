@@ -2,22 +2,23 @@
       xmlns:n="http://typo3.org/ns/ChrisGruen/ChessManager/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-	<div class="table-responsive">
+	<div class="table-responsive w-70">
 		<table class="table">
 		    <tr>
-		 		<th>UID</th>
-		        <th>Player</th>
+		 		<th>Nr.</th>
+		        <th>Spieler</th>
 		        <th>DWZ</th>
-		        <th></th>
 		    </tr>
-		    <f:for each="{players}" as="player">
+		    <f:for each="{players}" as="player" iteration="iterator">
 		        <tr>
-			    <td>{player.uid}</td>
+			    <td>{iterator.index+1}</td>
 		            <td>{player.name}</td>
 		            <td>{player.dwz}</td>
+	            <f:comment>
 			    <td>
 				<f:link.action action="showplayer" arguments="{playerUid : player.uid}">show</f:link.action>
 			    </td>
+			     </f:comment>
 		        </tr>
 		    </f:for>
 		</table>
