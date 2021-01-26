@@ -16,19 +16,5 @@
 		"psr-4" : {
 			"ChrisGruen\\ChessManager\\" : "Classes/"
 		}
-	},
-	"config": {
-        "optimize-autoloader": true,
-        "vendor-dir": ".build/vendor",
-        "bin-dir": ".build/bin"
-    },
-    "extra": {
-		"branch-alias": {
-			"dev-master": "10.x-dev"
-		},
-		"typo3/cms": {
-			"cms-package-dir": "{$vendor-dir}/typo3/cms",
-			"web-dir": ".Build/Web"
-		}
 	}
 }

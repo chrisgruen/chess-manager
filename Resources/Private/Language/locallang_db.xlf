@@ -23,7 +23,7 @@
                 <source>Players</source>
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_name">
-                <source>Player name</source>
+                <source>Item player</source>
             </trans-unit>
 			<trans-unit id="tx_chessmanager_domain_model_player.item_dwz">
                 <source>Item DWZ</source>

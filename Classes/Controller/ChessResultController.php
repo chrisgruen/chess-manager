@@ -20,7 +20,7 @@ class ChessResultController extends ActionController
     {
         $this->resultRepository = $resultRepository;
     }
-    
+
     /**
      * Inject the result resultplayer repository
      *
@@ -35,7 +35,7 @@ class ChessResultController extends ActionController
     {
         $show_saison = '';
         $maxround = 0;
-       
+
         if($this->request->hasArgument('year')){
             $date_year  = $this->request->getArgument('year');
         } else if ($this->request->hasArgument('saison')){
@@ -43,7 +43,8 @@ class ChessResultController extends ActionController
         } else {
             $date_year = date('Y');
         }
-        
+
+
         /* denpend $date_month for show saison (halfyear) */
         $date_month = date('n');
         //$date_month = 5;
@@ -55,10 +56,22 @@ class ChessResultController extends ActionController
             $year_saison_plus = $year_saison_start+1;
         } else {
             $year_saison_start = $date_year-1;
+            if($this->request->hasArgument('saison_form_select')) {
+                $year_saison_start = $date_year;
+            }
             $show_saison = $year_saison_start.'/'.($year_saison_start + 1);
             $year_saison_min = $year_saison_start;
             $year_saison_plus = $year_saison_start+2;
         }
+
+	if ($this->request->hasArgument('saisonplayer')) {
+		$date_year  = substr($this->request->getArgument('saisonplayer'),  0, 4);
+ 		$show_saison = $this->request->getArgument('saisonplayer');
+		$year_saison_start =  $date_year;
+		$year_saison_min = $year_saison_start-1;
+		$year_saison_plus = $year_saison_start+2;
+	}
+
 
         $saison = strval($show_saison);
         $max_round = $this->resultRepository->maxRoundSaison($saison);
@@ -81,11 +94,11 @@ class ChessResultController extends ActionController
 
         /* Result data */
         $results = $this->resultRepository->saisonRound($saison, $round, $saison_class_id);
-        
+
         /* prepare table ranglist teams */
         $teams_rang = $this->resultRepository->getTeamsSaison($saison_class_id,$saison);
         $ranglist = $this->getTabelleRang($saison, $teams_rang, $round, $count_player);
-        
+
         $this->view->assign('results', $results);
         $this->view->assign('show_saison', $show_saison);
         $this->view->assign('year_saison_start', $year_saison_start);
@@ -107,7 +120,7 @@ class ChessResultController extends ActionController
 
         $this->forward('index', 'ChessResult', $this->request->getControllerExtensionName(), $this->request->getArguments());
     }
-    
+
     public function resultplayerAction()
     {
         $resultplayers = [];
@@ -116,32 +129,32 @@ class ChessResultController extends ActionController
         $saison = '';
         $hometeam = 0;
         $awayteam = 0;
-        
+
         if($this->request->hasArgument('scorereport')){
             $scorereport = $this->request->getArgument('scorereport');
             $round = $this->request->getArgument('round');
-            $saison = $this->request->getArgument('saison');
+            $saison = $this->request->getArgument('saisonplayer');
             $hometeam = $this->request->getArgument('hometeam');
             $awayteam = $this->request->getArgument('awayteam');
             $resultplayers = $this->resultRepository->getPlayerResult($scorereport);
         }
-        
-        
+
+
         /* prepare ranglist player */
         $playerSaison = [];
         $showPlayersScore = [];
         $playersSaison = $this->resultplayerRepository->getPlayers();
         $saison_class_id  = $this->request->getArgument('class');
-        
+
         foreach($playersSaison as $player) {
             //echo $player['uid']." :: ".$player['name']."<br />";
-            if ($playerSaison = $this->resultplayerRepository->scorePlayer($player['uid'], $this->request->getArgument('round'), $this->request->getArgument('saison'), $saison_class_id)){                  
+            if ($playerSaison = $this->resultplayerRepository->scorePlayer($player['uid'], $this->request->getArgument('round'), $this->request->getArgument('saisonplayer'), $saison_class_id)){
                 foreach ($playerSaison as $playerscore){
                     if ($player['uid'] == $playerscore['uid']){
                         $score_total = $score_total + $playerscore['result_myteam'];
                     }
                 }
-                
+
                 if ($player['uid'] == $playerscore['uid'] && count($playerSaison) > 0){
                     $procent = $score_total * 100/count($playerSaison);
                     $playersScore[] = ['name' => $playerscore['name'],
@@ -149,13 +162,13 @@ class ChessResultController extends ActionController
                                         'scoreTotal' => $score_total,
                                         'procent' => number_format($procent, 2 ,',', '.' ).' %'
                                         ];
-                 
+
                     $score_total = 0;
                     continue;
                 }
-            }           
+            }
         }
-        
+
         if($playersScore){
             $showPlayersScore = $playersScore;
         }
@@ -200,17 +213,17 @@ class ChessResultController extends ActionController
         $score_min_total = 0;
         $points1_total = 0;
         $points2_total = 0;
- 
+
         foreach($teams_rang as $team) {
             $team_id = $team['uid'];
-            for ($rnd=1; $rnd <= $maxround; $rnd++){                
+            for ($rnd=1; $rnd <= $maxround; $rnd++){
                     $team_points = $this->resultRepository->getPoints($saison,$rnd,$team_id);
                 if(isset($team_points['count_player'])) {
                     $win_lost = $team_points['count_player']/2;
                 } else {
                     $win_lost = $win_lost_default;
                 }
-                
+
                 if(isset($team_points)) {
                     if($team_points > -1) {
                         if($team_points['points'] > $win_lost){
@@ -227,20 +240,20 @@ class ChessResultController extends ActionController
                         $score_plus = 0;
                         $score_min = 0;
                     }
-                    
+
                     $score_plus_total = intval($score_plus_total +  $score_plus);
                     $score_min_total = intval($score_min_total +  $score_min);
                     $points1_total = $points1_total + $team_points['points'];
-                    $points2_total = $points2_total + $team_points['bpoints'];                    
-                }                    
+                    $points2_total = $points2_total + $team_points['bpoints'];
+                }
             }
-            
+
             /*
             echo "<pre>";
             echo $rnd . " :: ".$team['uid'] . " :: ".$team['team'] ." :: ". $score_plus_total." :: ". $score_min_total." :: ".$points1_total." :: ".$points2_total;
             echo "</pre>";
             */
-                                  
+
             $count_round_match = (abs($score_plus_total) + abs($score_min_total)) / 2 ;
             /* prepare for sort-array (table rang) */
             $sort_team[]= $team;
@@ -249,14 +262,14 @@ class ChessResultController extends ActionController
             $sort_points1_total[]= $points1_total;
             $sort_points2_total[]= $points2_total;
             $sort_count_match[] = $count_round_match;
-            
+
             $score_plus_total = 0;
             $score_min_total = 0;
             $points1_total = 0;
             $points2_total = 0;
         }
-        
-        
+
+
         // table sort per rang
         $rang_table = [];
         if(count($teams_rang) > 0){
@@ -268,7 +281,7 @@ class ChessResultController extends ActionController
                 $sort_team, SORT_ASC,
                 $sort_count_match,
                 $teams_rang);
-            
+
             //Ausgabe Tabelle sortiert
             for($i=0; $i < count($teams_rang); $i++){
                 $rang_table[$i]['team'] = $sort_team[$i];
@@ -277,9 +290,9 @@ class ChessResultController extends ActionController
                 $rang_table[$i]['points1'] = $sort_points1_total[$i];
                 $rang_table[$i]['points2'] = $sort_points2_total[$i];
                 $rang_table[$i]['count_match'] = $sort_count_match[$i];
-            }            
+            }
         }
-       
+
         return $rang_table;
     }
 }

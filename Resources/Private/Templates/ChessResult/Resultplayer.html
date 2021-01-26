@@ -12,29 +12,27 @@
 		<div class="table-responsive">
 			<table class="table">
 				<tr>
-					<th colspan="6">
-						Einzelergebnisse: Runde {round} / Saison {saison} <br />
-						<n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' />
+					<th colspan="5">
+                        <span class="text-nowrap">Einzelergebnisse: Runde {round} / Saison {saison}</span> <br />
+						<span class="text-nowrap"><n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' /></span>
 					</th>
 				</tr>
 				<f:for each="{resultplayers}" as="resultplayer" iteration="iterator">
 					{f:variable(name: 'result_myteam_total', value: '{result_myteam_total + resultplayer.result_myteam}')}
 					{f:variable(name: 'result_opponent_total', value: '{result_opponent_total + resultplayer.result_opponent}')}
 					<tr>
-			            <td>{resultplayer.uid}</td>
-			            <td>{resultplayer.name}</td>
-			            <td>{resultplayer.result_myteam}</td>
-			            <td> : </td>
-			            <td>{resultplayer.result_opponent}</td>
-			            <td>{resultplayer.player_opponent}</td>
-			         </tr>		
+			            <td class="text-center text-nowrap">{resultplayer.name}</td>
+			            <td class="text-center">{resultplayer.result_myteam}</td>
+			            <td class="text-center"> : </td>
+			            <td class="text-center">{resultplayer.result_opponent}</td>
+			            <td class="text-center text-right text-nowrap">{resultplayer.player_opponent}</td>
+			         </tr>
 				</f:for>
 					<tr>
 						<th></th>
-						<th></th>
-						<th>{result_myteam_total}</th>
-						<th> : </th>
-						<th>{result_opponent_total}</th>
+						<th class="text-center"><b>{result_myteam_total}</b></th>
+						<th class="text-center"><b>:</b></th>
+						<th class="text-center"><b>{result_opponent_total}</b></th>
 						<th></th>
 					</tr>
 			</table>
@@ -44,37 +42,35 @@
 		<div class="table-responsive">
 			<table class="table">
 				<tr>
-					<th colspan="6">
-						Einzelergebnisse: Runde {round} / Saison {saison} <br />
-						<n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' />
-					</th>
+					<th colspan="5">
+						<span class="text-nowrap">Einzelergebnisse: Runde {round} / Saison {saison}</span> <br />
+                        <span class="text-nowrap"><n:showTeam team='{hometeam}' /> - <n:showTeam team='{awayteam}' /></span>
+                    </th>
 				</tr>
 				<f:for each="{resultplayers}" as="resultplayer">
 					{f:variable(name: 'result_myteam_total', value: '{result_myteam_total + resultplayer.result_myteam}')}
 					{f:variable(name: 'result_opponent_total', value: '{result_opponent_total + resultplayer.result_opponent}')}
 					<tr>
-			            <td>{resultplayer.uid}</td>
-			            <td>{resultplayer.result_opponent}</td>
-			            <td>{resultplayer.player_opponent}</td>
-			            <td> : </td>		            
-			            <td>{resultplayer.name}</td>
-			            <td>{resultplayer.result_myteam}</td>
-			         </tr>		
+			            <td class="text-nowrap">{resultplayer.result_opponent}</td>
+			            <td class="text-center">{resultplayer.player_opponent}</td>
+			            <td class="text-center"> : </td>
+			            <td class="text-center">{resultplayer.name}</td>
+			            <td class="text-right text-nowrap">{resultplayer.result_myteam}</td>
+			         </tr>
 				</f:for>
 					<tr>
 						<th></th>
-						<th></th>
-						<th>{result_opponent_total}</th>
-						<th> : </th>
-						<th>{result_myteam_total}</th>
+						<th class="text-center">{result_opponent_total}</th>
+						<th class="text-center"> : </th>
+						<th class="text-center">{result_myteam_total}</th>
 						<th></th>
 					</tr>
 			</table>
 		</div>
     </f:else>
 </f:if>
-<p><f:link.action class="btn btn-default" action="index" arguments="{saison : saison, round : round}"><< zurück</f:link.action></p>
-<h4>Erreichte Punkte</h4>
+<p><f:link.action class="btn btn-default btn-sm" action="index" arguments="{saisonplayer : saison, round : round}"><< zurück</f:link.action></p>
+<h3>Erreichte Punkte</h3>
 	<div class="table-responsive">
 		<table class="table">
 		  <tr>
@@ -94,16 +90,16 @@
 		  <f:for each="{rangplayers}" as="rangplayer">
 		  	<f:if condition="{rangplayer.name} != 'unbesetzt'">
 			  	<tr>
-			  		<td>{rangplayer.name}</td>
+			  		<td class="text-nowrap">{rangplayer.name}</td>
 			  		<td>{rangplayer.countMatch}</td>
 			  		<td>{rangplayer.scoreTotal}</td>
 			  		<td>{rangplayer.procent}</td>
 			  	</tr>
-		  	</f:if>	  	
+		  	</f:if>
 		  </f:for>
 		</table>
 	</div>
-<p><f:link.action class="btn btn-default" action="index" arguments="{saison : saison, round : round}"><< zurück</f:link.action></p>
+<p><f:link.action class="btn btn-default btn-sm" action="index" arguments="{saisonplayer : saison, round : round}"><< zurück</f:link.action></p>
 
 </html>
 

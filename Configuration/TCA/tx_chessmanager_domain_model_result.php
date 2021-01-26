@@ -2,8 +2,8 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:chess_manager/Resources/Private/Language/locallang_db.xlf:tx_chessmanager_domain_model_result',
-        'label' => 'uid',
-        'label_alt' => 'saison_game, round_game, home_team, away_team',
+        'label' => 'saison_game',
+        'label_alt' => 'round_game, home_team, away_team',
         'label_alt_force' => 1,
         'iconfile' => 'EXT:chess_manager/Resources/Public/Icons/Result.svg',
 	    'default_sortby' => 'ORDER BY uid DESC',
